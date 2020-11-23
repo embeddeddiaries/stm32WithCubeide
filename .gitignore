@@ -384,3 +384,4 @@ project.ioc
 mx.scratch
 RemoteSystemsTempFiles/
 Debug/
+**/debugPrints.launch
