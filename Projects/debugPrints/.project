@@ -45,6 +45,11 @@
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
+			<name>Drivers/SystemView_Src_V320</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
 			<name>Drivers/CMSIS/Device</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
@@ -61,6 +66,16 @@
 		</link>
 		<link>
 			<name>Drivers/STM32F4xx_HAL_Driver/Src</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>Drivers/SystemView_Src_V320/Config</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>Drivers/SystemView_Src_V320/SEGGER</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
@@ -335,6 +350,46 @@
 			<locationURI>PARENT-2-PROJECT_LOC/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c</locationURI>
 		</link>
 		<link>
+			<name>Drivers/SystemView_Src_V320/Config/Global.h</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Drivers/SystemView_Src_V320/Config/Global.h</locationURI>
+		</link>
+		<link>
+			<name>Drivers/SystemView_Src_V320/Config/SEGGER_RTT_Conf.h</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Drivers/SystemView_Src_V320/Config/SEGGER_RTT_Conf.h</locationURI>
+		</link>
+		<link>
+			<name>Drivers/SystemView_Src_V320/SEGGER/SEGGER.h</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Drivers/SystemView_Src_V320/SEGGER/SEGGER.h</locationURI>
+		</link>
+		<link>
+			<name>Drivers/SystemView_Src_V320/SEGGER/SEGGER_RTT.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Drivers/SystemView_Src_V320/SEGGER/SEGGER_RTT.c</locationURI>
+		</link>
+		<link>
+			<name>Drivers/SystemView_Src_V320/SEGGER/SEGGER_RTT.h</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Drivers/SystemView_Src_V320/SEGGER/SEGGER_RTT.h</locationURI>
+		</link>
+		<link>
+			<name>Drivers/SystemView_Src_V320/SEGGER/SEGGER_RTT_ASM_ARMv7M.S</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Drivers/SystemView_Src_V320/SEGGER/SEGGER_RTT_ASM_ARMv7M.S</locationURI>
+		</link>
+		<link>
+			<name>Drivers/SystemView_Src_V320/SEGGER/SEGGER_RTT_printf.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Drivers/SystemView_Src_V320/SEGGER/SEGGER_RTT_printf.c</locationURI>
+		</link>
+		<link>
+			<name>Drivers/SystemView_Src_V320/SEGGER/Syscalls</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
 			<name>Drivers/CMSIS/Device/ST/STM32F4xx</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
@@ -348,6 +403,11 @@
 			<name>Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32f4xx_hal_can_legacy.h</name>
 			<type>1</type>
 			<locationURI>PARENT-2-PROJECT_LOC/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32f4xx_hal_can_legacy.h</locationURI>
+		</link>
+		<link>
+			<name>Drivers/SystemView_Src_V320/SEGGER/Syscalls/SEGGER_RTT_Syscalls_GCC.c</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Drivers/SystemView_Src_V320/SEGGER/Syscalls/SEGGER_RTT_Syscalls_GCC.c</locationURI>
 		</link>
 		<link>
 			<name>Drivers/CMSIS/Device/ST/STM32F4xx/Include</name>

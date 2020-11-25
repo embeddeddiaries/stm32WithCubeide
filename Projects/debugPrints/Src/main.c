@@ -22,7 +22,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "stdio.h"
+#include "string.h"
+#include "SEGGER_RTT.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -32,11 +34,59 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+
+//#define SERIALWIREVIEWER	1
+
+/*
+ * For Serial wire viewer ---- define SERIALWIREVIEWER to 1
+ * 1. Enable serial wire viewer in project debug configuration with system clock
+ * 2. Start Debug -> Window -> Show view ->SWV -> SWV ITM Data Console.
+ * 3. Select port 0 and enable start trace
+ */
+
+//#define SEMIHOSTING		1
+
+/*
+ * For Semihosting ----- define SEMIHOSTING to 1
+ * 1. Exclude syscalls.c from build
+ * 2. Set additional flag ” -specs=rdimon.specs -lc -lrdimon ” for linker
+ * 3. Add initialization commands ” monitor arm semihosting enable ” in “Startup” tab in Debug Configuration.
+ * 4. Use ST-LINK OpenOCD as debugger.
+ */
+
+#define SEGGERRTT			1
+
+/*
+ * For Segger RTT ------ define SEGGERRTT to 1
+ * 1. Include system_view-xx folder to build
+ * 2. Convert ST-Link to Segger J-link
+ * 3. Change the debugger setting DEBUG PROBE – ST-link to SEGGER J-link
+ * 4. Open segger rtt client to view logs
+ *
+ */
+
+
+#if defined (SEGGERRTT) && defined (SEMIHOSTING) ||\
+	defined (SEGGERRTT) && defined (SERIALWIREVIEWER) || \
+	defined (SEMIHOSTING) && defined (SERIALWIREVIEWER)
+#error "Any one debugging method has to enabled"
+#endif
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
+#ifdef SERIALWIREVIEWER
+int _write(int file, char *ptr, int len)
+{
+	int DataIdx;
 
+	for (DataIdx = 0; DataIdx < len; DataIdx++)
+	{
+		ITM_SendChar(*ptr++);
+	}
+	return len;
+}
+#endif
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -54,6 +104,9 @@ static void MX_GPIO_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+#ifdef SEMIHOSTING
+extern void initialise_monitor_handles(void);
+#endif
 
 /* USER CODE END 0 */
 
@@ -91,8 +144,25 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+#ifdef SEMIHOSTING
+  initialise_monitor_handles();
+#endif
+
+#ifdef SEGGERRTT
+  uint8_t buff[] = "Print using SEGGER_RTT_Write function\n";
+#endif
+
+
+  int count = 0;
+
   while (1)
   {
+#ifdef SEGGERRTT
+	  SEGGER_RTT_Write(0,buff,strlen(buff));
+#endif
+
+	  printf("Hello \r\n printf using Serial Wire Viewer, Semihosting and Segger RTT, debugging prints...count = %d\n",count++);
+
 	  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET);
 	  HAL_Delay(1000);
 	  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
